@@ -8,13 +8,28 @@ class TicTacToe:
         self.n = 3
 
     def create_board(self):
-        '''
-        this method creates an empty board filled with -
-        :return:
-        full board
-        '''
         for i in range(self.n):
             row = []
             for j in range(self.n):
                 row.append('-')
             self.board.append(row)
+
+    def get_random_first_player(self):
+        return random.randint(0, 1)
+
+    def fix_spot(self, row: int, col: int, player: str):
+        self.board[row][col] = player
+
+    def is_player_win(self, player: str):
+        win = None
+
+        n = len(self.board)
+
+        for i in range(n):
+            win = True
+            for j in range(n):
+                if self.board[i][j] != player:
+                    win = False
+                    break
+            if win:
+                return win
