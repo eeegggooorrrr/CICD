@@ -76,3 +76,31 @@ class TicTacToe:
             for item in row:
                 print(item, end=" ")
             print()
+
+    def start(self):
+        self.create_board()
+
+        player = 'X' if self.get_random_first_player() == 1 else 'O'
+        while True:
+            print(f"Player {player} turn")
+
+            self.show_board()
+
+            row, col = list(
+                map(int, input("Enter row and column numbers to fix spot: ").split()))
+            print()
+
+            self.fix_spot(row - 1, col - 1, player)
+
+            if self.is_player_win(player):
+                print(f"Player {player} wins the game!")
+                break
+
+            if self.is_board_filled():
+                print("Match Draw!")
+                break
+
+            player = self.swap_player_turn(player)
+
+        print()
+        self.show_board()
