@@ -25,6 +25,7 @@ class TicTacToe:
 
         n = len(self.board)
 
+        # checking rows
         for i in range(n):
             win = True
             for j in range(n):
@@ -33,3 +34,29 @@ class TicTacToe:
                     break
             if win:
                 return win
+
+        for i in range(n):
+            win = True
+            for j in range(n):
+                if self.board[j][i] != player:
+                    win = False
+                    break
+            if win:
+                return win
+
+        win = True
+        for i in range(n):
+            if self.board[i][i] != player:
+                win = False
+                break
+        if win:
+            return win
+
+        win = True
+        for i in range(n):
+            if self.board[i][n - 1 - i] != player:
+                win = False
+                break
+        if win:
+            return win
+        return False
