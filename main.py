@@ -70,3 +70,9 @@ class TicTacToe:
 
     def swap_player_turn(self, player: str):
         return 'X' if player == 'O' else 'O'
+
+    def show_board(self):
+        for row in self.board:
+            for item in row:
+                print(item, end=" ")
+            print()
