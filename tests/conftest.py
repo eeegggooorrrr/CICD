@@ -1,5 +1,5 @@
 import pytest
-from TicTacToe import TicTacToe
+from main import TicTacToe
 
 
 @pytest.fixture

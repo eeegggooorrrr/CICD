@@ -1,5 +1,5 @@
 import random
-from TicTacToe import TicTacToe
+from main import TicTacToe
 
 
 def test_get_random_first_player(monkeypatch):
